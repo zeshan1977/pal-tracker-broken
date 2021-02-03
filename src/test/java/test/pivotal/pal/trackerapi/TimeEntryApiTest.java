@@ -1,5 +1,5 @@
 package test.pivotal.pal.trackerapi;
-
+import io.pivotal.pal.tracker.TimeEntryApiTestController;
 import com.jayway.jsonpath.DocumentContext;
 import io.pivotal.pal.tracker.PalTrackerApplication;
 import io.pivotal.pal.tracker.TimeEntry;
@@ -28,6 +28,10 @@ public class TimeEntryApiTest {
     private final long projectId = 123L;
     private final long userId = 456L;
     private final TimeEntry timeEntry = new TimeEntry(0, projectId, userId, LocalDate.parse("2017-01-08"), 8);
+
+    public TimeEntryApiTest(TestRestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     @Test
     public void testCreate() {
