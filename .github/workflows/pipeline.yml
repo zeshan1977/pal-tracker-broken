@@ -2,7 +2,7 @@ name: Pal Tracker Pipeline
 
 on:
   push:
-    branches: [main]
+    branches: [lab4-sol1]
 
 jobs:
   build-and-publish:
