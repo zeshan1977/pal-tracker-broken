@@ -13,7 +13,10 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> lab4-sol
 test {
     useJUnitPlatform()
 }
@@ -24,4 +27,8 @@ bootRun.environment([
 
 test.environment([
         "WELCOME_MESSAGE": "Hello from test",
+<<<<<<< HEAD
 ])
+=======
+])
+>>>>>>> lab4-sol

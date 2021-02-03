@@ -1,5 +1,9 @@
 package test.pivotal.pal.trackerapi;
+<<<<<<< HEAD
 import io.pivotal.pal.tracker.TimeEntryApiTestController;
+=======
+
+>>>>>>> lab4-sol
 import com.jayway.jsonpath.DocumentContext;
 import io.pivotal.pal.tracker.PalTrackerApplication;
 import io.pivotal.pal.tracker.TimeEntry;
@@ -29,15 +33,21 @@ public class TimeEntryApiTest {
     private final long userId = 456L;
     private final TimeEntry timeEntry = new TimeEntry(0, projectId, userId, LocalDate.parse("2017-01-08"), 8);
 
+<<<<<<< HEAD
     public TimeEntryApiTest(TestRestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
+=======
+>>>>>>> lab4-sol
     @Test
     public void testCreate() {
         ResponseEntity<String> createResponse = restTemplate.postForEntity("/time-entries", timeEntry, String.class);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> lab4-sol
         assertThat(createResponse.getStatusCode()).isEqualTo(HttpStatus.CREATED);
 
         DocumentContext createJson = parse(createResponse.getBody());
@@ -50,12 +60,19 @@ public class TimeEntryApiTest {
 
     @Test
     public void testList() {
+<<<<<<< HEAD
         Long id = createTimeEntry();
 
 
         ResponseEntity<String> listResponse = restTemplate.getForEntity("/time-entries", String.class);
 
 
+=======
+        long id = createTimeEntry();
+
+        ResponseEntity<String> listResponse = restTemplate.getForEntity("/time-entries", String.class);
+
+>>>>>>> lab4-sol
         assertThat(listResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         DocumentContext listJson = parse(listResponse.getBody());
@@ -63,18 +80,29 @@ public class TimeEntryApiTest {
         Collection timeEntries = listJson.read("$[*]", Collection.class);
         assertThat(timeEntries.size()).isEqualTo(1);
 
+<<<<<<< HEAD
         Long readId = listJson.read("$[0].id", Long.class);
+=======
+        long readId = listJson.read("$[0].id", Long.class);
+>>>>>>> lab4-sol
         assertThat(readId).isEqualTo(id);
     }
 
     @Test
     public void testRead() {
+<<<<<<< HEAD
         Long id = createTimeEntry();
 
 
         ResponseEntity<String> readResponse = this.restTemplate.getForEntity("/time-entries/" + id, String.class);
 
 
+=======
+        long id = createTimeEntry();
+
+        ResponseEntity<String> readResponse = this.restTemplate.getForEntity("/time-entries/" + id, String.class);
+
+>>>>>>> lab4-sol
         assertThat(readResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
         DocumentContext readJson = parse(readResponse.getBody());
         assertThat(readJson.read("$.id", Long.class)).isEqualTo(id);
@@ -86,15 +114,24 @@ public class TimeEntryApiTest {
 
     @Test
     public void testUpdate() {
+<<<<<<< HEAD
         Long id = createTimeEntry();
+=======
+        long id = createTimeEntry();
+>>>>>>> lab4-sol
         long projectId = 2L;
         long userId = 3L;
         TimeEntry updatedTimeEntry = new TimeEntry(0, projectId, userId, LocalDate.parse("2017-01-09"), 9);
 
+<<<<<<< HEAD
 
         ResponseEntity<String> updateResponse = restTemplate.exchange("/time-entries/" + id, HttpMethod.PUT, new HttpEntity<>(updatedTimeEntry, null), String.class);
 
 
+=======
+        ResponseEntity<String> updateResponse = restTemplate.exchange("/time-entries/" + id, HttpMethod.PUT, new HttpEntity<>(updatedTimeEntry, null), String.class);
+
+>>>>>>> lab4-sol
         assertThat(updateResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         DocumentContext updateJson = parse(updateResponse.getBody());
@@ -107,19 +144,30 @@ public class TimeEntryApiTest {
 
     @Test
     public void testDelete() throws Exception {
+<<<<<<< HEAD
         Long id = createTimeEntry();
 
 
         ResponseEntity<String> deleteResponse = restTemplate.exchange("/time-entries/" + id, HttpMethod.DELETE, null, String.class);
 
 
+=======
+        long id = createTimeEntry();
+
+        ResponseEntity<String> deleteResponse = restTemplate.exchange("/time-entries/" + id, HttpMethod.DELETE, null, String.class);
+
+>>>>>>> lab4-sol
         assertThat(deleteResponse.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
 
         ResponseEntity<String> deletedReadResponse = this.restTemplate.getForEntity("/time-entries/" + id, String.class);
         assertThat(deletedReadResponse.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
     }
 
+<<<<<<< HEAD
     private Long createTimeEntry() {
+=======
+    private long createTimeEntry() {
+>>>>>>> lab4-sol
         HttpEntity<TimeEntry> entity = new HttpEntity<>(timeEntry);
 
         ResponseEntity<TimeEntry> response = restTemplate.exchange("/time-entries", HttpMethod.POST, entity, TimeEntry.class);

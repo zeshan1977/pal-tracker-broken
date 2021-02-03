@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 
 package io.pivotal.pal.tracker;
+=======
+package io.pivotal.pal.tracker;
+
+>>>>>>> lab4-sol
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,10 +21,17 @@ public class EnvController {
     private final String cfInstanceAddress;
 
     public EnvController(
+<<<<<<< HEAD
             @Value("${port:NOT SET}") String port,
             @Value("${memory.limit:NOT SET}") String memoryLimit,
             @Value("${cf.instance.index:NOT SET}") String cfInstanceIndex,
             @Value("${cf.instance.addr:NOT SET}") String cfInstanceAddress
+=======
+        @Value("${port:NOT SET}") String port,
+        @Value("${memory.limit:NOT SET}") String memoryLimit,
+        @Value("${cf.instance.index:NOT SET}") String cfInstanceIndex,
+        @Value("${cf.instance.addr:NOT SET}") String cfInstanceAddress
+>>>>>>> lab4-sol
     ) {
         this.port = port;
         this.memoryLimit = memoryLimit;

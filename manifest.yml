@@ -3,7 +3,11 @@ applications:
 - name: pal-tracker
   path: build/libs/pal-tracker.jar
   routes:
+<<<<<<< HEAD
   - route: pal-tracker-mohammed-zeshan.apps.evans.pal.pivotal.io
+=======
+  - route: pal-tracker-${UNIQUE_IDENTIFIER}.${DOMAIN}
+>>>>>>> lab4-sol
   env:
     WELCOME_MESSAGE: Hello from the review environment
     JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'

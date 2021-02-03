@@ -1,4 +1,8 @@
 package test.pivotal.pal.tracker;
+<<<<<<< HEAD
+=======
+
+>>>>>>> lab4-sol
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;

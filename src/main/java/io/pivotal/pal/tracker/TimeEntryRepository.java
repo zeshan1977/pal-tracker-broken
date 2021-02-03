@@ -7,5 +7,9 @@ public interface TimeEntryRepository {
     TimeEntry find(long id);
     List<TimeEntry> list();
     TimeEntry update(long id, TimeEntry timeEntry);
+<<<<<<< HEAD
     TimeEntry delete(long id);
+=======
+    void delete(long id);
+>>>>>>> lab4-sol
 }

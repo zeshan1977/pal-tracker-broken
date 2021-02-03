@@ -52,9 +52,14 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
     }
 
     @Override
+<<<<<<< HEAD
     public TimeEntry delete(long id) {
         timeEntries.remove(id);
         return null;
+=======
+    public void delete(long id) {
+        timeEntries.remove(id);
+>>>>>>> lab4-sol
     }
 }
 
